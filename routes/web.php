@@ -19,3 +19,5 @@ Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'view'])->name('cart.view');
 Route::post('/order', [OrderController::class, 'submit'])->name('order.submit');
 Route::get('/order/summary/{id}', [OrderController::class, 'summary'])->name('order.summary');
+Route::delete('/order/cancel/{id}', [OrderController::class, 'cancel'])->name('order.cancel');
+

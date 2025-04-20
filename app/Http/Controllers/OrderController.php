@@ -58,4 +58,17 @@ class OrderController extends Controller
 
         return view('order.summary', compact('order'));
     }
+
+    public function cancel($id)
+{
+    // Hapus order item dulu
+    OrderItem::where('order_id', $id)->delete();
+
+    // Hapus order utama
+    Order::where('id', $id)->delete();
+
+    return redirect('/')->with('success', 'Pesanan berhasil dibatalkan.');
 }
+
+}
+
